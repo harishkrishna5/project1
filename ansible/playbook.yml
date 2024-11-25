@@ -1,1 +1,45 @@
+- name: Configure Kubernetes Nodes
 
+  hosts: all
+
+  tasks:
+
+    - name: Update package cache
+
+      apt:
+
+        update_cache: yes
+
+
+
+    - name: Install Docker
+
+      apt:
+
+        name: docker.io
+
+        state: present
+
+
+
+    - name: Start and enable Docker
+
+      service:
+
+        name: docker
+
+        state: started
+
+        enabled: true
+
+
+
+    - name: Install Kubernetes tools
+
+      shell: |
+
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+        chmod +x kubectl
+
+        mv kubectl /usr/local/bin/
