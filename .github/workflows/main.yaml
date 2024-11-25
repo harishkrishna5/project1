@@ -26,4 +26,5 @@ jobs:
         with:
           context: ./app
           push: true
-          tags: harish100/demo-app:latest
+          tags: .harish100/demo-app:latest
+  
