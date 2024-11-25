@@ -26,5 +26,5 @@ jobs:
         with:
           context: ./app
           push: true
-          tags: hub.docker.com/harish100/demo-app:latest
+          tags: harish100/demo-app:latest
   
