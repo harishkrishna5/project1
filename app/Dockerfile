@@ -1,13 +1,11 @@
-FROM python:3.9-slim
-
-
-
+FROM node:alpine
 WORKDIR /app
 
-COPY requirements.txt .
+COPY package.json .
 
-RUN pip install -r requirements.txt
+RUN npm install
 
 COPY . .
+EXPOSE 3000
 
-CMD ["python", "app.py"]
+CMD ["npm", "start"]
